@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+
+  "name": "Autocomplete OFF",
+  "description": "Saving streamers privacy for autocomplete attribute.",
+  "version": "1.0",
+
+  "permissions": [
+    "activeTab",
+    "http://*/*",
+    "https://*/*",
+    "file:///*/*"
+  ],
+
+  "content_scripts": [
+    {
+    "matches": ["http://*/*", "https://*/*", "file:///*/*"],
+    "js": ["content.js"]
+  }
+]
+
+}
