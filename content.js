@@ -2,8 +2,10 @@ const tagName = "input";
 new MutationObserver(async (mutations, observer) => {
     for (const mutation of mutations) {
         if (mutation.type !== "childList") continue;
-        if (mutation.target.tagName !== tagName.toUpperCase()) continue;
+        for (const child of mutation.addedNodes) {
+            if (child.tagName !== tagName.toUpperCase()) continue;
 
-        mutation.target.setAttribute("autocomplete", "off");
+            child.setAttribute("autocomplete", "off");
+        }
     }
 }).observe(document, { subtree: true, childList: true });
